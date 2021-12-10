@@ -13,9 +13,9 @@ app.use(bodyParser.urlencoded({
 app.set('view engine', 'ejs')
 
 const timesDataBase = {
-  'Bob': '57.85',
-  'Jon': '47.88',
-  'Bill': '44.76'
+  // 'Bob': '57.85',
+  // 'Jon': '47.88',
+  // 'Bill': '44.76'
 }
 
 app.get('/', function (req, res) {
