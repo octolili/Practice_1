@@ -12,15 +12,13 @@ app.use(bodyParser.urlencoded({
 
 app.set('view engine', 'ejs')
 
-const timesDataBase = {
-  // 'Bob': '57.85',
-  // 'Jon': '47.88',
-  // 'Bill': '44.76'
-}
+const lapTime1 = {}
+const lapTime2 = {}
+const totalTime = lapTime1 + lapTime2
 
 app.get('/', function (req, res) {
   const TemplateVars= {
-    skaters: timesDataBase
+    skaters: lapTime1
   }
   res.render('index',
   TemplateVars)
@@ -28,12 +26,12 @@ app.get('/', function (req, res) {
 
 app.post('/times/new', function (req, res) {
   console.log('Times Input', req.body)
-  timesDataBase[req.body.FirstName] = req.body.Time
-  console.log(timesDataBase)
+  lapTime1[req.body.FirstName] = req.body.Lap_Time_1
+  console.log(lapTime1)
   res.redirect('/')
 })
  
 app.listen(PORT, function(){
   console.log(`server running listening on: ${PORT}`)
-  console.log(timesDataBase)
+  console.log(lapTime1)
 });
